@@ -1,0 +1,24 @@
+<div class="header">
+    <h2> Todo App </h2>
+    <input type="text" placeholder="add a todo" class="input-todo" [(ngModel)]="name"/>
+    <input type="text" placeholder="person" class="input-todo" [(ngModel)]="person"/>
+    <input type="date" placeholder="date" class="input-todo" [(ngModel)]="date"/>
+    <br />
+    <button (click)="Add()">{{addButton}}</button>
+</div>
+
+<div class="container">   
+<ul>
+    <li *ngFor="let todo of todos; index as i">
+        <span>{{todo.name}} // {{todo.person}} // {{todo.date}} //
+            <select name="status" id="status">
+             <option *ngfor="let status of status1.status">{{status}}</option>
+            </select> 
+        </span> 
+        <button (click)="edit(todo.name, todo.person, todo.date, i)">Edit</button>
+        <button (click)="delete(i)">Delete</button>
+    </li>
+</ul>
+<app.select-list></app.select-list>
+
+</div>
